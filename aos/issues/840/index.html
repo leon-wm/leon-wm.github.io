@@ -63,22 +63,17 @@
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > lastScrollTop) {
       // Scrolling down
-      // Apply AOS configuration for scrolling down
-      AOS.init({
-        offset: 200, // Adjust this value as needed
-        // Add other options specific to scrolling down animation
+      document.querySelectorAll('.element').forEach((el, index) => {
+        el.setAttribute('data-aos', 'fade-right');
       });
-      AOS.refreshHard(); // Manually refresh AOS.js animations
     } else {
       // Scrolling up
-      // Apply AOS configuration for scrolling up
-      AOS.init({
-        offset: 100, // Adjust this value as needed
-        // Add other options specific to scrolling up animation
+      document.querySelectorAll('.element').forEach((el, index) => {
+        el.setAttribute('data-aos', 'fade-left');
       });
-      AOS.refreshHard(); // Manually refresh AOS.js animations
     }
     lastScrollTop = scrollTop;
+    AOS.refreshHard(); // Manually refresh AOS.js animations
   });
 </script>
 

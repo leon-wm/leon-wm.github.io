@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Animation Demo</title>
+  <link rel="stylesheet" href="path/to/aos.css">
+  <style>
+    /* Add your CSS styles here */
+    .element {
+      width: 100px;
+      height: 100px;
+      background-color: #007DFE;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="element" data-aos="fade-right"></div>
+<div class="element" data-aos="fade-left"></div>
+
+<script src="path/to/aos.js"></script>
+<script>
+  // Initialize AOS.js with global options
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true // Only trigger animations once
+  });
+
+  // Function to detect scroll direction
+  let lastScrollTop = 0;
+  window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      // Scrolling down
+      // Apply AOS configuration for scrolling down
+      AOS.init({
+        offset: 200, // Adjust this value as needed
+        // Add other options specific to scrolling down animation
+      });
+      AOS.refreshHard(); // Manually refresh AOS.js animations
+    } else {
+      // Scrolling up
+      // Apply AOS configuration for scrolling up
+      AOS.init({
+        offset: 100, // Adjust this value as needed
+        // Add other options specific to scrolling up animation
+      });
+      AOS.refreshHard(); // Manually refresh AOS.js animations
+    }
+    lastScrollTop = scrollTop;
+  });
+</script>
+
+</body>
+</html>

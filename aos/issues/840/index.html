@@ -45,8 +45,8 @@
   <h3>Original issue by <a href="https://github.com/Shikotoshi">@Shikotoshi</a>: </h3>
   <p>How can i trigger animate when i scroll up? it is possible?</p>
 </div>
-<div class="element" data-aos="fade-right"></div>
-<div class="element" data-aos="fade-left"></div>
+<div class="element" data-aos="fade-right" data-aos-offset="200"></div>
+<div class="element" data-aos="fade-right" data-aos-offset="200"></div>
 <div class="spacer"></div>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -65,11 +65,13 @@
       // Scrolling down
       document.querySelectorAll('.element').forEach((el, index) => {
         el.setAttribute('data-aos', 'fade-right');
+        el.setAttribute('data-aos-offset', '200')
       });
     } else {
       // Scrolling up
       document.querySelectorAll('.element').forEach((el, index) => {
         el.setAttribute('data-aos', 'fade-left');
+        el.setAttribute('data-aos-offset', '-200')
       });
     }
     lastScrollTop = scrollTop;
